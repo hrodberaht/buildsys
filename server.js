@@ -1,9 +1,11 @@
 var express = require("express");
 var path = require("path");
+var morgan = require("morgan");
 //require('./app_server/api/models/db'); // uncoment if you use MONGODB and install mongoose
 
 var app = express();
 
+app.use(morgan('dev'));
 app.use('/public',express.static(path.join(__dirname, '/public')));
 app.use('/bower_components/',express.static(path.join(__dirname, '/bower_components')));
 app.set('views', path.join(__dirname, 'app_server/client/views'));
